@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-HELP.IN</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<style>
+    body {
+        background-color: #E2E5DE;
+    }
+
+    nav {
+        border-bottom: 4px solid #5bacac;
+    }
+
+    #details {
+        border: 4px solid #5bacac;
+        border-radius: 25%;
+    }
+
+    nav button {
+        background-color: #5bacac;
+    }
+
+    nav button:hover {
+        background-color: #558d8d;
+    }
+
+    #content {
+        min-height: calc(100vh - 8rem);
+        /* Adjust as needed */
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+</style>
+
+<body>
+    <nav class="mx-2 py-8 px-8 flex justify-between items-center w-full ">
+
+        <div class="px-10 mx-3">
+            <h1 class="text-3xl w-64 font-semibold">AI-HELP.IN</h1>
+
+        </div>
+        <div class="w-full flex justify-around">
+            <button id="homeBtn" class="text-white font-semibold py-2.5 px-5 rounded">Home</button>
+            <button id="createBtn" class="text-white font-semibold py-2.5 px-5 rounded">Create</button>
+            <button id="blogBtn" class="text-white font-semibold py-2.5 px-5 rounded">Blog</button>
+            <button id="addonsBtn" class="text-white font-semibold py-2.5 px-5 rounded">Add ons</button>
+            <button id="logoutBtn" class="text-white font-semibold py-2.5 px-5 rounded">Logout</button>
+        </div>
+    </nav>
+
+    <div id="content" class="min-h-screen flex items-center justify-evenly">
+        <div id="details" class="w-2/5 h-96">
+            <h4 class="text-5xl flex h-full text-center px-20 py-4 items-center">Hi (User Name), Welcome to AI-Help.in
+            </h4>
+        </div>
+        <div id="tutVideo">
+    <!-- update here     -->
+        </div>
+    </div>
+
+</body>
+
+</html>

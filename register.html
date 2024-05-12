@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>AI-HELP.IN</title>
+    <style>
+        body {
+            background-color: #E2E5DE;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        h1 {
+
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            align-self: end;
+        }
+
+        button {
+            background-color: #5bacac;
+            border: 1px solid #3f9ea5;
+            height: 40%;
+            margin-top: 30px;
+        }
+
+        a {
+
+            background-color: #5bacac;
+            border: 1px solid #3f9ea5;
+            height: 40%;
+            margin-top: 30px;
+        }
+
+
+        button:hover {
+            background-color: #4ac0c8;
+        }
+
+        .header2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #bt1 {
+            margin-left: 56px
+        }
+
+        #bt1:hover {
+            background-color: #4ac0c8;
+        }
+
+        .button {
+            margin: 4px;
+        }
+
+        .choice {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+
+        #bt3 {
+            margin-left: 56px;
+            background-color: #E2E5DE;
+            color: #5bacac;
+            border: none;
+        }
+
+        #bt3:hover {
+            border: 1px solid #5bacac;
+        }
+
+
+        #register {
+            background-color: #E2E5DE;
+            padding: 20px;
+            width: 450px;
+            border: 2px solid #3f9ea5;
+            border-radius: 30px;
+            align-self: center;
+            margin-left: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #5bacac;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4ac0c8;
+        }
+
+        @media (max-width: 800px) {
+            #contact {
+                height: 55px;
+            }
+        }
+    </style>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
+    <script type="text/javascript">
+
+        function verifyOtp() {
+                // Submit the form data
+                var form = document.getElementById("registrationForm");
+                var formData = new FormData(form);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", form.action, true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        // If the form submission is successful, redirect to otp.html
+                        window.location.href = './otp.html';
+                    } else {
+                        // Handle errors if any
+                        console.error("Error submitting form:", xhr.responseText);
+                        alert("Error submitting form. Please try again later.");
+                    }
+                };
+                xhr.send(formData);
+            }
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="text-3xl w-64 font-normal">AI-HELP.IN</h1>
+        <h2 class="text-3xl w-64 font-normal">WELCOME</h1>
+            <button id="contact" class="text-white font-semibold py-2 px-4 rounded">Contact Us</button>
+    </div>
+    <div class="header2">
+        <a href="./index.html" id="bt1" class="button text-white font-semibold py-3 px-6 rounded">Button 1</a>
+        <a href="https://www.google.com/" style="background-color:#E2E5DE; color:#5bacac;" id="bt2"
+            class="button text-white font-semibold py-3 px-6 rounded">Button 2</a>
+    </div>
+    <div class="choice">
+        <div id="selection">
+            <a href="./login.html" id="bt3" class="text-white font-semibold py-3 px-7 rounded">Login</a>
+            <button id="bt4" class="text-white font-semibold py-3 px-5 rounded">Register</button>
+        </div>
+    </div>
+
+    <div id="register">
+
+        <form
+            action="https://script.google.com/macros/s/AKfycbw4ZEQ6KF6SpK7FQyqXX_zi39bA7zK6XSLCpx2tp_sToTze2pRDIUfDo-O5-Niy_UPT/exec"
+            method="post">
+            <div class="form-group">
+                <label for="reg_email">Work Email:</label>
+                <input type="email" id="reg_email" name="reg_email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">User Name:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation" name="designation" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <input type="text" id="company" name="company" required>
+            </div>
+            <div class="form-group">
+                <label for="reg_password">Password:</label>
+                <input type="password" id="reg_password" name="reg_password" required>
+            </div>
+            <div class="form-group">
+                <input id="registerBtn" type="submit" onclick="verifyOtp()" value="Register">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

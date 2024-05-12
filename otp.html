@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>AI-HELP.IN</title>
+    <style>
+        body {
+            background-color: #E2E5DE;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        h1 {
+
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            align-self: end;
+        }
+
+        button {
+            background-color: #5bacac;
+            border: 1px solid #3f9ea5;
+            height: 40%;
+            margin-top: 30px;
+        }
+
+        a {
+
+            background-color: #5bacac;
+            border: 1px solid #3f9ea5;
+            height: 40%;
+            margin-top: 30px;
+        }
+
+
+        button:hover {
+            background-color: #4ac0c8;
+        }
+
+        .header2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #bt1 {
+            margin-left: 56px
+        }
+
+        #bt1:hover {
+            background-color: #4ac0c8;
+        }
+
+        .button {
+            margin: 4px;
+        }
+
+        .choice {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+
+        .container {
+            background-color: #E2E5DE;
+            padding: 20px;
+            width: 360px;
+            border: 2px solid #3f9ea5;
+            margin-top: 100px;
+            border-radius: 30px;
+            align-self: center;
+            margin-left: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #5bacac;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4ac0c8;
+        }
+
+
+        @media (max-width: 630px) {
+            #contact {
+                height: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="text-3xl w-64 font-normal">AI-HELP.IN</h1>
+        <h2 class="text-3xl w-64 font-normal">WELCOME</h1>
+            <button id="contact" class="text-white font-semibold py-2 px-4 rounded">Contact Us</button>
+    </div>
+    <div class="header2">
+        <a href="./login.html" id="bt1" class="button text-white font-semibold py-3 px-6 rounded">Button 1</a>
+        <a href="https://www.google.com/" style="background-color:#E2E5DE; color:#5bacac;" id="bt2"
+            class="button text-white font-semibold py-3 px-6 rounded">Button 2</a>
+    </div>
+
+
+
+    <div class="container">
+        <div id="login">
+
+            <div class="form-group">
+                <label for="otp" style="text-align: center;">An OTP has been Sent to your Email,Enter the OTP in
+                    below text box.</label>
+                <input type="tel" id="otp" name="otp" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Verify" style="width: 100%;">
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    document.getElementById("otpForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the entered OTP
+        var otp = document.getElementById("otp").value;
+
+        // Perform OTP verification
+        if (otp === "6789") { // Assuming OTP is hardcoded as "6789"
+            // Redirect to landing.html upon successful verification
+            window.location.href = "Landing.html";
+        } else {
+            // Display an error message or handle invalid OTP
+            alert("Invalid OTP. Please try again.");
+        }
+    });
+</script>
+
+</html>
