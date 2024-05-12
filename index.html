@@ -15,10 +15,9 @@
 
         .header {
             width: 100%;
-            height: 100px;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
         }
 
         h1 {
@@ -26,30 +25,11 @@
             margin-top: 20px;
         }
 
-        h2 {
+        /* h2 {
             margin-top: 20px;
             align-self: end;
-        }
+        } */
 
-        button {
-            background-color: #5bacac;
-            border: 1px solid #3f9ea5;
-            height: 40%;
-            margin-top: 30px;
-        }
-
-        a {
-
-            background-color: #5bacac;
-            border: 1px solid #3f9ea5;
-            height: 40%;
-            margin-top: 30px;
-        }
-
-
-        button:hover {
-            background-color: #4ac0c8;
-        }
 
         .header2 {
             display: flex;
@@ -57,53 +37,38 @@
             justify-content: center;
         }
 
-        #bt1 {
-            margin-left: 56px
-        }
-
-        #bt1:hover {
-            background-color: #4ac0c8;
-        }
-
-        #bt2{
-            background-color:#E2E5DE; color:#5bacac;
-        }
-        .button {
-            margin: 4px;
-        }
 
         .choice {
             display: flex;
             justify-content: center;
             align-items: end;
+            margin: 40px 0px;
         }
 
-        #bt3 {
-            margin-left: 56px;
-        }
 
-        #bt4 {
-            background-color: #E2E5DE;
-            color: #5bacac;
-            border: none;
-        }
-
-        #bt4:hover {
-            border: 1px solid #3f9ea5;
-
-        }
 
         .container {
             background-color: #E2E5DE;
             padding: 20px;
             width: 360px;
-            border: 2px solid #3f9ea5;
+            border: 2px solid #db2777;
             border-radius: 30px;
             align-self: center;
             margin-left: 30px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        #register {
+            display: none;
+            background-color: #E2E5DE;
+            padding: 20px;
+            width: 450px;
+            border: 2px solid #db2777;
+            border-radius: 30px;
+            align-self: center;
+            margin-left: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
         .form-group {
             margin-bottom: 20px;
@@ -125,49 +90,39 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-
-        input[type="submit"] {
-            background-color: #5bacac;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #4ac0c8;
-        }
-
-        @media (max-width: 630px) {
-            #contact {
-                height: 55px;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1 class="text-3xl w-64 font-normal">AI-HELP.IN</h1>
-        <h2 class="text-3xl w-64 font-normal">WELCOME</h1>
-            <button id="contact" class="text-white font-semibold py-2 px-4 rounded">Contact Us</button>
+    <div class="header mt-3 mb-5 ">
+        <h1 class="text-3xl h-full items-center flex w-64 font-normal ml-24">AI-HELP.IN</h1>
+        <button id="contact"
+            class="mr-24 text-white font-semibold border-2 border-pink-600 hover:border-pink-600  transition ease-in-out delay-150 h-fit w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">Contact
+            Us</button>
     </div>
-    <div class="header2">
-        <a href="./index.html" id="bt1" class="button text-white font-semibold py-3 px-6 rounded">Button 1</a>
-        <a href="https://www.google.com/"  id="bt2"
-            class="button text-white font-semibold py-3 px-6 rounded">Button 2</a>
-    </div>
-    <div class="choice">
-        <div id="selection">
-            <button id="bt3" class="text-white font-semibold py-3 px-7 rounded">Login</button>
-            <a href="./register.html" id="bt4" class="text-white font-semibold py-3 px-5 rounded">Register</a>
-        </div>
-    </div>
+    <h2 class="text-4xl text-center font-bold">WELCOME</h1>
 
-    <div class="container">
-        <div id="login">
-            <form action="https://script.google.com/macros/s/AKfycbypNtDtd0KJ7e5c0D8G7n2UB-wOjMLK9QTLt8dRW0Y3_aQE7OUS3KS4g4-6uZvLkEpG/exec" method="post">
+        <div class="header2 my-4">
+            <button id="bt1"
+                class="text-white mr-4 font-semibold border-2 border-pink-600 hover:border-pink-600  transition ease-in-out delay-150 w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">Button
+                1</button>
+            <button id="bt2" class="w-fit px-4 py-2 border-2 border-pink-600 rounded-lg text-pink-600">Button
+                2</button>
+        </div>
+        <!-- <div class="container"> -->
+        <div class="choice">
+            <div id="selection">
+                <button id="bt4"
+                    class="w-fit px-4 py-2 border-2 border-pink-600 rounded-lg text-pink-600">Register</button>
+                <button id="bt3"
+                    class="text-white font-semibold border-2 border-pink-600 hover:border-pink-600  transition ease-in-out delay-150 w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">Login</button>
+            </div>
+        </div>
+
+        <div id="login" class="container">
+            <form id="loginForm"
+                action="https://script.google.com/macros/s/AKfycbyGlZmBQqErerATEebThVN-wJyQeikEp9MKWtXgCpq-yj7S9-i1guPv-7h3cKG1_kT9/exec"
+                method="post">
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
@@ -176,16 +131,135 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Login" style="width: 100%;">
+                <div class="form-group flex justify-center">
+                    <input id="loginBtn"
+                        class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900  transition ease-in-out delay-150 w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 hover:bg-pink-900 duration-300 text-white rounded-lg py-2 px-4"
+                        type="submit" value="Login">
                 </div>
             </form>
         </div>
-    </div>
+        <div id="register">
+            <form id="registerForm"
+                action="https://script.google.com/macros/s/AKfycbwVxXMrjhmGPsckia9_OXGvnKSeWrCNDrZV4EDkL-3y--TuvvdqtCVXXEZkKcWkvmZW/exec"
+                method="post">
+                <div class="form-group">
+                    <label for="reg_email">Work Email:</label>
+                    <input type="email" id="reg_email" name="reg_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">User Name:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="designation">Designation:</label>
+                    <input type="text" id="designation" name="designation" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg_password">Password:</label>
+                    <input type="password" id="reg_password" name="reg_password" required>
+                </div>
+                <div class="form-group flex justify-center">
+                    <input
+                        class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 hover:bg-pink-900 transition ease-in-out delay-150 w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4"
+                        id="registerBtn" type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+        <!-- </div> -->
+
 
 </body>
-<script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var currClass = "text-white font-semibold border-2 border-pink-600 hover:border-pink-600  transition ease-in-out delay-150 w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4";
+    var nexClass = "w-fit px-4 py-2 border-2 border-pink-600 rounded-lg text-pink-600"
+    $('#bt4').click(function () {
+        $('#login').hide();
+        $('#register').show();
+        $('#bt3').removeClass(currClass);
+        $('#bt3').addClass(nexClass);
+        $('#bt4').removeClass(nexClass);
+        $('#bt4').addClass(currClass);
+    });
+
+    $('#bt3').click(function () {
+        $('#login').show();
+        $('#register').hide();
+        $('#bt3').removeClass(nexClass);
+        $('#bt3').addClass(currClass);
+        $('#bt4').removeClass(currClass);
+        $('#bt4').addClass(nexClass);
+    });
+    $('#bt2').click(function () {
+        window.location.href = "https://www.google.com/";
+    });
+    $('#bt1').click(function () {
+        window.location.href = './index.html'
+    });
+
+    $('#registerBtn').click(function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Perform form validation
+
+        // Make AJAX request to register
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbx3cSHrEEYokScYRCgsXUOFPYGOVuz2Gq-S1Bvqu9bw-sdajOTPofvFbBqrNdU7wTP5/exec",
+            method: "POST",
+            data: $('#registerForm').serialize(), // Assuming your form has id="registerForm"
+            success: function (response) {
+                // Check if the response contains a URL or an error message
+                if (response.startsWith("http")) {
+                    // Redirect to the URL received from the server
+                    window.location.href = response.trim();
+                } else {
+                    // Display error message
+                    alert(response);
+                }
+            },
+            error: function (xhr, status, error) {
+                // Handle AJAX error
+                alert("AJAX error: " + status);
+            }
+        });
+    });
+
+    $('#loginBtn').click(function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Perform form validation
+
+        // Make AJAX request to register
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbyGlZmBQqErerATEebThVN-wJyQeikEp9MKWtXgCpq-yj7S9-i1guPv-7h3cKG1_kT9/exec",
+            method: "POST",
+            data: $('#loginForm').serialize(), // Assuming your form has id="registerForm"
+            success: function (response) {
+                // Check if the response contains a URL or an error message
+                if (response.startsWith("http")) {
+                    // Redirect to the URL received from the server
+                    window.location.href = response.trim();
+                } else {
+                    // Display error message
+                    alert(response);
+                }
+            },
+            error: function (xhr, status, error) {
+                // Handle AJAX error
+                alert("AJAX error: " + status);
+            }
+        });
+    });
 </script>
 
 </html>
