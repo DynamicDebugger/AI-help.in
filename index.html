@@ -129,7 +129,7 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input minlength="8" type="password" id="password" name="password" required>
                 </div>
                 <div class="form-group flex justify-center">
                     <input id="loginBtn"
@@ -207,10 +207,37 @@
         window.location.href = './index.html'
     });
 
+    // Function to validate password strength
+    function validatePasswordStrength(password) {
+        // Regular expressions to check for presence of lowercase, uppercase, digit, and special character
+        var lowercaseRegex = /[a-z]/;
+        var uppercaseRegex = /[A-Z]/;
+        var digitRegex = /[0-9]/;
+        var specialCharRegex = /[^a-zA-Z0-9]/;
+
+        // Check if password contains at least one lowercase letter, uppercase letter, digit, and special character
+        var isStrong = lowercaseRegex.test(password) &&
+            uppercaseRegex.test(password) &&
+            digitRegex.test(password) &&
+            specialCharRegex.test(password);
+
+        return isStrong;
+    }
+
+    // Register button click event
     $('#registerBtn').click(function (e) {
         e.preventDefault(); // Prevent form submission
 
-        // Perform form validation
+        // Get password value
+        var password = $('#reg_password').val();
+
+        // Validate password strength
+        if (!validatePasswordStrength(password)) {
+            alert("Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.");
+            return;
+        }
+
+        // Perform other form validation
 
         // Make AJAX request to register
         $.ajax({
@@ -233,6 +260,7 @@
             }
         });
     });
+
 
     $('#loginBtn').click(function (e) {
         e.preventDefault(); // Prevent form submission
