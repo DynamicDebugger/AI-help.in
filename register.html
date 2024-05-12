@@ -144,24 +144,31 @@
 
     <script type="text/javascript">
 
-        function verifyOtp() {
-                // Submit the form data
-                var form = document.getElementById("registrationForm");
-                var formData = new FormData(form);
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", form.action, true);
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        // If the form submission is successful, redirect to otp.html
-                        window.location.href = './otp.html';
-                    } else {
-                        // Handle errors if any
-                        console.error("Error submitting form:", xhr.responseText);
-                        alert("Error submitting form. Please try again later.");
-                    }
-                };
-                xhr.send(formData);
-            }
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var formData = new FormData(this); // Get form data
+            var request = new XMLHttpRequest(); // Create XMLHttpRequest object
+
+            // Configure HTTP request
+            request.open("POST", this.action, true); // Use form's action attribute
+            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // Define behavior when the response is received
+            request.onload = function() {
+                if (request.status === 200) {
+                    // If the form submission is successful, redirect to otp.html
+                    window.location.href = 'https://dynamicdebugger.github.io/AI-help.in/otp.html';
+                } else {
+                    // Handle errors if any
+                    console.error("Error submitting form:", request.responseText);
+                    alert("Error submitting form. Please try again later.");
+                }
+            };
+
+            // Send request with form data
+            request.send(new URLSearchParams(formData).toString());
+        });
 
     </script>
 </head>
@@ -214,7 +221,7 @@
                 <input type="password" id="reg_password" name="reg_password" required>
             </div>
             <div class="form-group">
-                <input id="registerBtn" type="submit" onclick="verifyOtp()" value="Register">
+                <input id="registerBtn" type="submit" value="Register">
             </div>
         </form>
     </div>
