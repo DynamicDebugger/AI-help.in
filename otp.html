@@ -15,10 +15,9 @@
 
         .header {
             width: 100%;
-            height: 100px;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
         }
 
         h1 {
@@ -26,30 +25,11 @@
             margin-top: 20px;
         }
 
-        h2 {
+        /* h2 {
             margin-top: 20px;
             align-self: end;
-        }
+        } */
 
-        button {
-            background-color: #5bacac;
-            border: 1px solid #3f9ea5;
-            height: 40%;
-            margin-top: 30px;
-        }
-
-        a {
-
-            background-color: #5bacac;
-            border: 1px solid #3f9ea5;
-            height: 40%;
-            margin-top: 30px;
-        }
-
-
-        button:hover {
-            background-color: #4ac0c8;
-        }
 
         .header2 {
             display: flex;
@@ -57,30 +37,33 @@
             justify-content: center;
         }
 
-        #bt1 {
-            margin-left: 56px
-        }
-
-        #bt1:hover {
-            background-color: #4ac0c8;
-        }
-
-        .button {
-            margin: 4px;
-        }
 
         .choice {
             display: flex;
             justify-content: center;
             align-items: end;
+            margin: 40px 0px;
         }
+
+
 
         .container {
             background-color: #E2E5DE;
             padding: 20px;
             width: 360px;
-            border: 2px solid #3f9ea5;
-            margin-top: 100px;
+            border: 2px solid #db2777;
+            border-radius: 30px;
+            align-self: center;
+            margin-left: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #register {
+            display: none;
+            background-color: #E2E5DE;
+            padding: 20px;
+            width: 450px;
+            border: 2px solid #db2777;
             border-radius: 30px;
             align-self: center;
             margin-left: 30px;
@@ -107,76 +90,63 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-
-        input[type="submit"] {
-            background-color: #5bacac;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #4ac0c8;
-        }
-
-
-        @media (max-width: 630px) {
-            #contact {
-                height: 55px;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1 class="text-3xl w-64 font-normal">AI-HELP.IN</h1>
-        <h2 class="text-3xl w-64 font-normal">WELCOME</h1>
-            <button id="contact" class="text-white font-semibold py-2 px-4 rounded">Contact Us</button>
+    <div class="header mt-3 mb-5 ">
+        <h1 class="text-3xl h-full items-center flex w-64 font-normal ml-24">AI-HELP.IN</h1>
+        <button id="contact"
+            class="mr-24 text-white font-semibold border-2 border-pink-600 hover:border-pink-600  transition ease-in-out delay-150 h-fit w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">Contact
+            Us</button>
     </div>
-    <div class="header2">
-        <a href="./login.html" id="bt1" class="button text-white font-semibold py-3 px-6 rounded">Button 1</a>
-        <a href="https://www.google.com/" style="background-color:#E2E5DE; color:#5bacac;" id="bt2"
-            class="button text-white font-semibold py-3 px-6 rounded">Button 2</a>
-    </div>
-
-
-
-    <div class="container">
-        <div id="login">
-
-            <div class="form-group">
-                <label for="otp" style="text-align: center;">An OTP has been Sent to your Email,Enter the OTP in
-                    below text box.</label>
-                <input type="tel" id="otp" name="otp" required>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Verify" style="width: 100%;">
-            </div>
-
+    <h2 class="text-4xl text-center font-bold">WELCOME</h1>
+        <div class="header2 my-4">
+            <button id="bt1"
+                class="text-white mr-4 font-semibold border-2 border-pink-600 hover:border-pink-600  transition ease-in-out delay-150 w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">Button
+                1</button>
+            <button id="bt2" class="w-fit px-4 py-2 border-2 border-pink-600 rounded-lg text-pink-600">Button
+                2</button>
         </div>
-    </div>
+        <div class="container">
+            <div id="login">
+
+                <div class="form-group">
+                    <label for="otp" style="text-align: center;">An OTP has been Sent to your Email,Enter the OTP in
+                        below text box.</label>
+                    <input type="tel" id="otp" name="otp" required>
+                </div>
+
+                <div class="form-group flex justify-center">
+                    <input type="submit" value="Verify" id="verifyOtp"
+                        class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900  transition ease-in-out delay-150 w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 hover:bg-pink-900 duration-300 text-white rounded-lg py-2 px-4">
+                </div>
+
+            </div>
+        </div>
 
 </body>
-<script>
-    document.getElementById("otpForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the default form submission
 
-        // Get the entered OTP
-        var otp = document.getElementById("otp").value;
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $('#bt2').click(function () {
+        window.location.href = "https://www.google.com/";
+    });
+    $('#bt1').click(function () {
+        window.location.href = './index.html'
+    });
 
-        // Perform OTP verification
-        if (otp === "6789") { // Assuming OTP is hardcoded as "6789"
-            // Redirect to landing.html upon successful verification
-            window.location.href = "Landing.html";
+    $('#verifyOtp').click(function () {
+        var inputOTP = $('#otp').val(); // Retrieve OTP value when the "Verify" button is clicked
+        console.log(inputOTP);
+        if (inputOTP === "6789") {
+            window.location.href = './Landing.html';
         } else {
-            // Display an error message or handle invalid OTP
-            alert("Invalid OTP. Please try again.");
+            alert("Invalid Otp!!");
         }
     });
+
 </script>
 
 </html>
