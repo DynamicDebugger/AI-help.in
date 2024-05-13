@@ -66,4 +66,8 @@ The `doPost()` function interacts with Google Apps Script to handle form submiss
 - [Shreksta R](#)
 - [Aravindan L U](#)
 
+## Deployment
+The website is deployed using GitHub Pages. We utilized GitHub Pages to host the website directly from the GitHub repository. This deployment method allows for easy sharing and access to the website without the need for additional hosting services.
+
 Deployed Website: [AI-help.in](https://dynamicdebugger.github.io/AI-help.in/)
+
