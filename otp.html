@@ -54,7 +54,6 @@
             border: 2px solid #db2777;
             border-radius: 30px;
             align-self: center;
-            margin-left: 30px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -66,7 +65,6 @@
             border: 2px solid #db2777;
             border-radius: 30px;
             align-self: center;
-            margin-left: 30px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -90,15 +88,30 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+
+        @media (max-width: 630px) {
+            .container {
+                background-color: #e2e5de;
+                padding: 20px;
+                width: 300px;
+                border: 2px solid #db2777;
+                border-radius: 30px;
+                align-self: center;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="header mt-3 mb-5 ">
-        <h1 class="text-3xl h-full items-center flex w-64 font-normal ml-24">AI-HELP.IN</h1>
+    <div class="header mt-3 mb-5">
+        <h1 class="text-xl font-bold md:text-3xl h-full items-center flex w-64 ml-10 md:ml-24">
+            AI-HELP.IN
+        </h1>
         <button id="contact"
-            class="mr-24 text-white font-semibold border-2 border-pink-600 hover:border-pink-600  transition ease-in-out delay-150 h-fit w-fit hover:text-white  hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">Contact
-            Us</button>
+            class="mr-10 md:mr-24 border-2 text-sm border-pink-600 hover:border-pink-600 transition ease-in-out delay-150 h-fit w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">
+            Contact Us
+        </button>
     </div>
     <h2 class="text-4xl text-center font-bold">WELCOME</h1>
         <div class="header2 my-4">
@@ -141,7 +154,10 @@
         var inputOTP = $('#otp').val(); // Retrieve OTP value when the "Verify" button is clicked
         console.log(inputOTP);
         if (inputOTP === "6789") {
-            window.location.href = './Landing.html';
+            // Show alert for successful OTP verification
+            alert("OTP verification successful!");
+            // Redirect after OK button on the alert is clicked
+            window.location.href = './index.html';
         } else {
             alert("Invalid Otp!!");
         }
