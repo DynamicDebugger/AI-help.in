@@ -82,8 +82,7 @@ To use the login.js script, integrate it into your web application's backend alo
 - Google Sheets
 
 ## Contributors
-- [Balasubrmani E]
-- [Dhivya G]
-- [Shreksta R]
-- [Aravindan L U]
-This project is licensed under the [License Name] License - see the [LICENSE.md](LICENSE.md) file for details.
+- [Balasubrmani E](#)
+- [Dhivya G](#)
+- [Shreksta R](#)
+- [Aravindan L U](#)
