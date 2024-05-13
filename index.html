@@ -273,30 +273,24 @@
         });
     });
 
-    $("#loginBtn").click(function (e) {
-        e.preventDefault(); // Prevent form submission
-
-        // Perform form validation
-
-        // Make AJAX request to register
+   $('#loginForm').submit(function (e) {
+        e.preventDefault();
+        let email = $('#email').val();
+        let password = $('#password').val();
         $.ajax({
-            url: "https://script.google.com/macros/s/AKfycbyGlZmBQqErerATEebThVN-wJyQeikEp9MKWtXgCpq-yj7S9-i1guPv-7h3cKG1_kT9/exec",
-            method: "POST",
-            data: $("#loginForm").serialize(), // Assuming your form has id="registerForm"
+            url: 'https://script.google.com/macros/s/AKfycbxCP3jaf4UyxW28vP5XpOEzM9aTHwlucQpG3Mjlbo0hWD0It17UsolieTdctbiXT2tB/exec',
+            method: 'POST',
+            data: {
+                email: email,
+                password: password
+            },
             success: function (response) {
-                // Check if the response contains a URL or an error message
-                if (response.startsWith("http")) {
-                    // Redirect to the URL received from the server
-                    window.location.href = response.trim();
-                } else {
-                    // Display error message
-                    alert(response);
-                }
+                sessionStorage.setItem('username', response); // Store the username in sessionStorage
+                window.location.href = './Landing.html'; // Redirect to the landing page
             },
             error: function (xhr, status, error) {
-                // Handle AJAX error
-                alert("AJAX error: " + status);
-            },
+                alert('Error: ' + error);
+            }
         });
     });
 </script>
