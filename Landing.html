@@ -2,33 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI-HELP.IN</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #e2e5de;
+        }
+    </style>
 </head>
-<style>
-    body {
-        background-color: #E2E5DE;
-    }
-
-    /* nav {
-        border-bottom: 4px solid #5bacac;
-    } */
-
-    /* #details {
-        border: 4px solid #5bacac;
-        border-radius: 25%;
-    } */
-
-    #content {
-        min-height: calc(100vh - 8rem);
-        /* Adjust as needed */
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-</style>
 
 <body>
     <nav class="bg-pink-700 fixed w-full z-20">
@@ -41,29 +24,20 @@
                 <div class="hidden lg:flex lg:items-center lg:justify-end">
                     <!-- Navbar Links -->
                     <div class="flex space-x-4">
-                        <button id="homeBtn"
-                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Home</button>
-                        <button id="createBtn"
-                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Create</button>
-                        <button id="blogBtn"
-                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Blog</button>
-                        <button id="addonsBtn"
-                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Add
-                            ons</button>
-                        <button id="logoutBtn"
-                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Logout</button>
+                        <button id="homeBtn" class="nav-btn">Home</button>
+                        <button id="createBtn" class="nav-btn">Create</button>
+                        <button id="blogBtn" class="nav-btn">Blog</button>
+                        <button id="addonsBtn" class="nav-btn">Add ons</button>
+                        <button id="logoutBtn" class="nav-btn">Logout</button>
                     </div>
                 </div>
                 <!-- Hamburger Menu for Small Screens -->
                 <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
-                    <button class="bg-pink-700" id="btn-menu" type="button"
-                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                        aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="absolute -inset-0.5"></span>
+                    <button class="bg-pink-700" id="btn-menu" type="button">
                         <span class="sr-only">Open main menu</span>
                         <!-- Hamburger Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     </button>
@@ -71,55 +45,67 @@
             </div>
         </div>
         <!-- Mobile Menu, Hidden by Default -->
-        <div class="lg:hidden transition ease-in-out delay-200 origin-top" id="mobile-menu">
+        <div class="lg:hidden transition ease-in-out delay-200 origin-top hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <!-- Mobile version of your navbar links -->
                 <button id="homeBtnMobile"
-                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Home</button>
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">
+                    Home
+                </button>
                 <button id="createBtnMobile"
-                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Create</button>
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">
+                    Create
+                </button>
                 <button id="blogBtnMobile"
-                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Blog</button>
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">
+                    Blog
+                </button>
                 <button id="addonsBtnMobile"
-                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Add
-                    ons</button>
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">
+                    Add ons
+                </button>
                 <button id="logoutBtnMobile"
-                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Logout</button>
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-600 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">
+                    Logout
+                </button>
             </div>
         </div>
     </nav>
 
-
-    <div id="content" class="min-h-screen flex items-center justify-evenly">
-        <div id="details" class="w-2/5 h-96 border-4 border-pink-900 rounded-xl">
-            <h4 class="text-5xl flex h-full text-center px-20 py-4 items-center">Hi (User Name), Welcome to AI-Help.in
+    <div id="content" class="min-h-screen flex flex-col lg:flex-row items-center justify-evenly">
+        <div id="details" class="w-full lg:w-2/5 h-96 border-4 border-pink-900 rounded-xl mb-4 lg:mb-0">
+            <h4 id="greeting" class="text-5xl flex h-full text-center px-20 py-4 items-center">
+                Hi (User Name), Welcome to AI-HELP.IN
             </h4>
         </div>
-        <div id="tutVideo">
-            <!-- update here     -->
+        <div id="tutVideo" class="w-full lg:w-2/5">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dzqmw1f9960" frameborder="0"
+                allowfullscreen></iframe>
         </div>
     </div>
 
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    // jQuery code for toggling mobile menu
-    $(document).ready(function () {
-        $('#btn-menu').click(function () {
-            $('#mobile-menu').toggleClass('hidden');
-        });
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // jQuery code for toggling mobile menu
+        $(document).ready(function () {
+            $("#btn-menu").click(function () {
+                $("#mobile-menu").toggleClass("hidden");
+            });
 
-        // Close mobile menu when a link is clicked
-        $('#mobile-menu button').click(function () {
-            $('#mobile-menu').addClass('hidden');
+            // Close mobile menu when a link is clicked
+            $("#mobile-menu button").click(function () {
+                $("#mobile-menu").addClass("hidden");
+            });
+
+            $("#logoutBtnMobile").click(function () {
+                window.location.href = "./index.html";
+            });
+
+            $("#logoutBtn").click(function () {
+                window.location.href = "./index.html";
+            });
         });
-    });
-    $('#logoutBtnMobile').click(function () {
-        window.location.href = './index.html';
-    })
-    $('#logoutBtn').click(function () {
-        window.location.href = './index.html';
-    })
-</script>
+    </script>
+</body>
 
 </html>
