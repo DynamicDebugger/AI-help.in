@@ -82,7 +82,7 @@ To use the login.js script, integrate it into your web application's backend alo
 - Google Sheets
 
 ## Contributors
-- [Balasubrmani E](#)
-- [Dhivya G](#)
+- [Balasubrmani E](https://github.com/DynamicDebugger)
+- [Dhivya G](https://github.com/Rallycode)
 - [Shreksta R](#)
 - [Aravindan L U](#)
