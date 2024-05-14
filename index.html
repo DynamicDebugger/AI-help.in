@@ -129,7 +129,7 @@
     <div id="login-register" class="container mx-auto w-2/5 md:w-1/4">
         <div id="login">
             <form id="loginForm"
-                action="https://script.google.com/macros/s/AKfycbyF6w7KMKp6X6h0_rqT1bwlqgC6ytUBZWFLTcXDtyOi2URqkRpTeoq0GEkxGF7Di6A/exec"
+                action="https://script.google.com/macros/s/AKfycbxm-5xbJMMvu17VwUt68GKaD6koyqbRKb7OdOmNkmLP5Seo-XH90s9r24nUzfa2oDns/exec"
                 method="post">
                 <div class="form-group">
                     <label for="email">Email:</label>
@@ -149,7 +149,7 @@
 
         <div id="register">
             <form id="registerForm"
-                action="https://script.google.com/macros/s/AKfycbye7EstFjdV_kPSFpUcIghmO-8ldAwCW5mENMraeS738_4WbTxiWcHWWYQu0siQY8Yl/exec"
+                action="https://script.google.com/macros/s/AKfycbyk6jKpAq4H8n09nNWYPS9QQ5uRpvJBhyMu5IO745I/dev"
                 method="post">
                 <div class="form-group">
                     <label for="reg_email">Work Email:</label>
@@ -273,7 +273,7 @@
         });
     });
 
-   $('#loginForm').submit(function (e) {
+    $('#loginForm').submit(function (e) {
         e.preventDefault();
         let email = $('#email').val();
         let password = $('#password').val();
@@ -285,6 +285,7 @@
                 password: password
             },
             success: function (response) {
+
                 if (response.startsWith("Invalid")) {
                     alert("Invalid credentials!");
                 } else {
