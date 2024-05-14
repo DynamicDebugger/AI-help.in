@@ -285,8 +285,12 @@
                 password: password
             },
             success: function (response) {
-                sessionStorage.setItem('username', response); // Store the username in sessionStorage
-                window.location.href = './Landing.html'; // Redirect to the landing page
+                if (response.startsWith("Invalid")) {
+                    alert("Invalid credentials!");
+                } else {
+                    sessionStorage.setItem('username', response); // Store the username in sessionStorage
+                    window.location.href = './Landing.html'; // Redirect to the landing page
+                }
             },
             error: function (xhr, status, error) {
                 alert('Error: ' + error);
