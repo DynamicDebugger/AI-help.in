@@ -243,36 +243,24 @@
 
         // Validate password strength
         if (!validatePasswordStrength(password)) {
-            alert("Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.");
+            alert(
+                "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character."
+            );
             return;
         }
 
         // Perform other form validation
-        let regEmail = $('#reg_email').val();
-        let username = $('#username').val();
-        let phone = $('#phone').val();
-        let designation = $('#designation').val();
-        let company = $('#company').val();
-        let regPassword = $('#reg_password').val();
 
         // Make AJAX request to register
         $.ajax({
-            url: "https://script.google.com/macros/s/AKfycbyPKlBMp5NU9qoCrK3niapO9ArXRFhhroBu4PjTdobJxhmDeIt2e0QvwiV0k_r-ywwt/exec",
+            url: "https://script.google.com/macros/s/AKfycbye7EstFjdV_kPSFpUcIghmO-8ldAwCW5mENMraeS738_4WbTxiWcHWWYQu0siQY8Yl/exec",
             method: "POST",
-            data: {
-                reg_email:regEmail,
-                username:username,
-                phone:phone,
-                designation:designation,
-                company:company,
-                reg_password:regPassword
-            },
+            data: $("#registerForm").serialize(), // Assuming your form has id="registerForm"
             success: function (response) {
                 // Check if the response contains a URL or an error message
-                console.log(response);
-                if (response.startsWith("Success")) {
+                if (response.startsWith("http")) {
                     // Redirect to the URL received from the server
-                    window.location.href = './otp.html';
+                    window.location.href = response.trim();
                 } else {
                     // Display error message
                     alert(response);
@@ -284,7 +272,6 @@
             },
         });
     });
-
 
     $('#loginForm').submit(function (e) {
         e.preventDefault();
