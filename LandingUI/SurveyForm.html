@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <title>AI-HELP.IN</title>
+    <style>
+        body {
+            background-color: #e2e5de;
+        }
+
+        .container {
+            background-color: #e2e5de;
+            padding: 20px;
+            width: 380px;
+            border: 2px solid #db2777;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 630px) {
+            .container {
+                background-color: #e2e5de;
+                padding: 20px;
+                width: 300px;
+                border: 2px solid #db2777;
+                border-radius: 30px;
+                align-self: center;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="survey-field" class="container mx-auto w-3/5 md:w-1/4 mt-10">
+        <div id="quesAns">
+            <div id="fields">
+                <div class="form-group">
+                    <label for="question1">Question-1</label>
+                    <input type="text" id="question1" name="question1" required />
+                </div>
+                <div class="form-group">
+                    <label for="answer1">Answer-1</label>
+                    <input type="text" id="answer1" name="answer1" required />
+                </div>
+                <div class="form-group">
+                    <label for="question2">Question-2</label>
+                    <input type="text" id="question2" name="question2" required />
+                </div>
+                <div class="form-group">
+                    <label for="answer2">Answer-2</label>
+                    <input type="text" id="answer2" name="answer2" required />
+                </div>
+            </div>
+            <div class="form-group flex justify-center">
+                <button
+                    class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 hover:bg-pink-900 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4"
+                    id="addQuestionBtn" onclick="display()">+Add Questions</button>
+            </div>
+
+            <div class="form-group flex justify-center">
+                <input
+                    class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 hover:bg-pink-900 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4"
+                    id="Submitbtn" type="submit" value="Submit" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function display() {
+            var fields = document.getElementById("fields");
+
+            var newQuestionNumber = fields.querySelectorAll('.form-group').length / 2 + 1;
+
+            var questionGroup = document.createElement('div');
+            questionGroup.setAttribute("class", 'form-group');
+            questionGroup.innerHTML = `<label for="question${newQuestionNumber}">Question-${newQuestionNumber}</label> <input type="text" id="question${ newQuestionNumber }" name="question ${ newQuestionNumber }" required />`;
+
+            var answerGroup = document.createElement('div');
+            answerGroup.setAttribute("class", 'form-group');
+            answerGroup.innerHTML = `<label for="answer${newQuestionNumber}">Answer-${newQuestionNumber}</label> <input type="text" id="answer${newQuestionNumber}" name="answer${newQuestionNumber}" required />`;
+
+            fields.appendChild(questionGroup);
+            fields.appendChild(answerGroup);
+        }
+    </script>
+
+</body>
+
+</html>

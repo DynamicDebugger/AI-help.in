@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../logo.jpg">
+    <title>AI-HELP.IN</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<style>
+    body {
+        background-color: #e2e5de;
+        margin: 0;
+    }
+
+    nav {
+        z-index: 10;
+    }
+
+    #content {
+        padding-top: 4rem;
+        min-height: calc(100vh - 4rem);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .hidden-content {
+        display: none;
+    }
+    .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height to center vertically */
+    }
+
+</style>
+
+<body>
+    <nav class="bg-pink-700 fixed w-full z-20">
+        <div class="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex items-center">
+                    <h1 class="text-white text-3xl font-semibold">AI-HELP.IN</h1>
+                </div>
+                <div class="hidden lg:flex lg:items-center lg:justify-end">
+                    <div class="flex space-x-4">
+                        <button id="homeBtn"
+                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Home</button>
+                        <button id="createBtn"
+                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Create</button>
+                        <button id="blogBtn"
+                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Blog</button>
+                        <button id="addonsBtn"
+                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Add
+                            ons</button>
+                        <button id="logoutBtn"
+                            class="text-white font-semibold px-3 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Logout</button>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
+                    <button id="btn-menu" type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="lg:hidden transition ease-in-out delay-200 origin-top" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button id="homeBtnMobile"
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Home</button>
+                <button id="createBtnMobile"
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Create</button>
+                <button id="blogBtnMobile"
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Blog</button>
+                <button id="addonsBtnMobile"
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Add
+                    ons</button>
+                <button id="logoutBtnMobile"
+                    class="block w-full text-left text-white font-semibold px-4 py-2 rounded-lg border border-pink-800 hover:border-pink-900 hover:text-white hover:bg-pink-600 duration-300">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="content" class="min-h-screen flex flex-col lg:flex-row items-center justify-evenly">
+        <div id="details" class="w-3/4 lg:w-2/5 h-fit md:h-96 border-4 border-pink-900 rounded-xl mt-6 mb-4 lg:mb-0">
+            <div id="greeting" class="text-3xl md:text-5xl flex h-full text-center px-6 py-4 items-center"></div>
+        </div>
+        <div id="tutVideo" class="w-full lg:w-2/5 mb-4 lg:mb-0">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dzqmw1f9960" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="container center-content mx-auto">
+        <div id="surveyContainer" class="text-center w-1/2 py-2 px-4 border-4 border-pink-900 rounded-xl"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var username = sessionStorage.getItem('username');
+            var greetingElement = document.getElementById('greeting');
+            if (username) {
+                greetingElement.textContent = 'Hi ' + username + ', Welcome to AI-HELP.IN';
+            } else {
+                greetingElement.textContent = 'Welcome to AI-HELP.IN';
+            }
+        });
+
+        $(document).ready(function () {
+            var username = sessionStorage.getItem('username');
+
+            $('#btn-menu').click(function () {
+                $('#mobile-menu').toggleClass('hidden');
+            });
+
+            $('#mobile-menu button').click(function () {
+                $('#mobile-menu').addClass('hidden');
+            });
+
+            $('#logoutBtn, #logoutBtnMobile').click(function () {
+                window.location.href = '../index.html';
+            });
+
+            $('#createBtn, #createBtnMobile').click(function () {
+                if (username) {
+                    handleCreate(username);
+                } else {
+                    // alert('Please log in to create a survey.');
+                    window.location.href = '../index.html';
+                }
+            });
+
+            function handleCreate(username) {
+                $.ajax({
+                    url: 'https://script.google.com/macros/s/AKfycbyHzOAuPpy1UHN54EGZtssFmayscFN3YSh0iqbtEyzgOK93dCIeeLNTLWUUCTSi4QTz/exec',
+                    method: 'POST',
+                    data: {
+                        username: username,
+                    },
+                    success: function (response) {
+
+                        if (response.startsWith("update,")) {
+                            let additionalInfo = response.split(",")[1];
+                            $('#content').addClass('hidden-content');
+                            $('#surveyContainer').html(`
+                                <p class="text-xl text-center">Your Survey ID ${additionalInfo}</p>
+                                <div class="flex justify-center pt-4">
+                                    <button id="updateBtn" class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 hover:bg-pink-900 duration-300 text-white rounded-lg py-2 px-4">Update</button>
+                                </div>
+                            `);
+                            $('#updateBtn').click(function () {
+                                window.location.href = "./SurveyTaker.html";
+                            });
+                        } else if (response.startsWith("add")) {
+                            $('#content').addClass('hidden-content');
+                            $('#surveyContainer').html(`
+                                <p class="text-xl">Your Number of Survey is completed, click below button to add more number of surveys.</p>
+                                <div class="flex justify-center pt-4">
+                                    <button id="addBtn" class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 hover:bg-pink-900 duration-300 text-white rounded-lg py-2 px-4">Add</button>
+                                </div>
+                            `);
+                            $('#addBtn').click(function () {
+                                window.location.href = "https://www.google.com";
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error: ' + error);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

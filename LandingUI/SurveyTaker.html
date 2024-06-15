@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <title>AI-HELP.IN</title>
+    <style>
+        body {
+            background-color: #e2e5de;
+        }
+
+        .container {
+            background-color: #e2e5de;
+            padding: 20px;
+            width: 380px;
+            border: 2px solid #db2777;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        @media (max-width: 630px) {
+            .container {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center-content">
+        <div id="survey-field" class="container mx-auto w-3/5 md:w-/4 mt-10">
+            <div id="survey">
+                <form id="surveyForm" method="post">
+                    <div class="form-group">
+                        <label for="survey_id">Survey ID</label>
+                        <input type="number" id="survey_id" name="surveyId" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="survey_title">Survey Title</label>
+                        <input type="text" id="survey_title" name="surveyTitle" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Appl_link">Applicant Email and DOB Google sheet link</label>
+                        <input type="text" id="Appl_link" name="applLinks" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Timing">Schedule Timing</label>
+                        <input type="text" id="Timing" name="timings" required />
+                    </div>
+
+                    <div class="form-group flex justify-center">
+                        <input
+                            class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 hover:bg-pink-900 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4"
+                            id="registerBtn" type="submit" value="Navigate to Questions Section" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $('#surveyForm').submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbz6-WJaUsefDQmwPIwAW59oTCnATYHK5X4SsRgfPzCvln82UbvXUEB0wt9qV6HlUY0/exec",
+                    method: "POST",
+                    data: $("#surveyForm").serialize(),
+                    success: function (response) {
+                        console.log(response);
+                        alert("Form Submitted Successfully");
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX error: ", status, error);
+                        console.log("Response Text: ", xhr.responseText);
+                        alert("AJAX error: " + status + "\nError: " + error + "\nResponse: " + xhr.responseText);
+                    },
+                });
+            });
+
+    </script>
+</body>
+
+</html>
