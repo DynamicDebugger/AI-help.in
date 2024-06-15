@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <title>AI-HELP.IN</title>
+    <style>
+        body {
+            background-color: #e2e5de;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .header2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .choice {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            margin: 20px 0px;
+        }
+
+        .container {
+            background-color: #e2e5de;
+            padding: 20px;
+            width: 360px;
+            border: 2px solid #db2777;
+            border-radius: 30px;
+            align-self: center;
+            /* margin-left: 30px; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #register {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 630px) {
+            .container {
+                background-color: #e2e5de;
+                padding: 20px;
+                width: 300px;
+                border: 2px solid #db2777;
+                border-radius: 30px;
+                align-self: center;
+                /* margin-left: 30px; */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .container {
+            background-color: #e2e5de;
+            padding: 20px;
+            width: 360px;
+            border: 2px solid #db2777;
+            border-radius: 30px;
+            align-self: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #db2777;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            padding: 10px 20px;
+            background-color: #db2777;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .login-btn:hover {
+            background-color: #b0266a;
+        }
+
+        .title-btn {
+            display: inline-block;
+            border: none;
+            border-radius: 5px;
+            background-color: #db2777;
+            color: #ccc;
+            padding: 10px 20px;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 630px) {
+            .container {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header mt-3 mb-5">
+        <h1 class="text-xl font-bold md:text-3xl h-full items-center flex w-64 ml-10 md:ml-24">
+            AI-HELP.IN
+        </h1>
+        <button id="contact"
+            class="mr-10 md:mr-24 border-2 text-sm border-pink-600 hover:border-pink-600 transition ease-in-out delay-150 h-fit w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">
+            Contact Us
+        </button>
+    </div>
+    <h2 class="text-4xl text-center font-bold">WELCOME</h2>
+
+    <div class="header2 my-4">
+        <div>
+            <button id="bt1" class=" mr-4 w-fit px-4 py-2 border-2 border-pink-600 rounded-lg text-pink-600">
+                Button 1
+            </button>
+            <button id="bt2"
+                class="font-semibold border-2 border-pink-600 hover:border-pink-600 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">
+                Button 2
+            </button>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <form id="loginForm" action="" method="post">
+            <fieldset>
+                <legend class="title-btn">Login</legend>
+                <div class="form-group mt-8">
+                    <label for="survey_id">Survey ID</label>
+                    <input type="number" id="survey_id" name="survey_id" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Applicant Email</label>
+                    <input type="text" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <div class="form-group">
+                    <input class="login-btn" id="loginBtn" type="submit" value="Login" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $("#bt2").click(function () {
+        window.location.href = "./SurveyLogin.html";
+    });
+
+    $("#bt1").click(function () {
+        window.location.href = "./index.html";
+    });
+
+    $('#loginBtn').click(function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Perform any additional validation or processing here if needed
+
+        window.location.href = "./LandingUI/SurveyGiver.html"; // Redirect to the new page
+    });
+</script>
+
+
+</html>
