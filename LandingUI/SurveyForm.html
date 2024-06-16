@@ -56,7 +56,7 @@
 
 <body>
 
-    <div id="survey-field" class="container mx-auto w-3/5 md:w-1/4 mt-10">
+    <form id="survey-field" class="container mx-auto w-3/5 md:w-1/4 mt-10">
         <div id="quesAns">
             <div id="fields">
                 <div class="form-group">
@@ -88,8 +88,9 @@
                     id="Submitbtn" type="submit" value="Submit" />
             </div>
         </div>
-    </div>
-
+    </form>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
     <script>
         function display() {
             var fields = document.getElementById("fields");
@@ -107,6 +108,45 @@
             fields.appendChild(questionGroup);
             fields.appendChild(answerGroup);
         }
+
+
+        $(document).ready(function () {
+            var id = sessionStorage.getItem('surveyID');
+            if (!id) {
+                console.error("Survey ID is not set in sessionStorage.");
+                return;
+            }
+            console.log(id);
+            console.log(typeof id)
+            $("#Submitbtn").click(function (e) {
+                e.preventDefault();
+
+                var formData = {
+                    id: id,
+                };
+
+                $('#fields .form-group').each(function (index, element) {
+                    var input = $(element).find('input');
+                    if (input && input.attr('id')) {
+                        formData[input.attr('name')] = input.val(); // Ensure name attribute is used for formData
+                    }
+                });
+                
+                $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbxrNPgOcBBerAymqMmFyqbAyE7CcqdS2sB8JFXjbD4xuanhcca6RLuhySdhOcPOsV9P/exec",
+                    method: "POST",
+                    data: formData,
+                    success: function (response) {
+                        window.location.href = "../SurveyLogin.html";
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX error: " + status);
+                    },
+                });
+            });
+        });
+
+
     </script>
 
 </body>

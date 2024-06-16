@@ -185,7 +185,7 @@
         </div>
     </div>
     <div class="container mt-3">
-        <form id="loginForm" action="" method="post">
+        <form id="loginForm" method="post">
             <fieldset>
                 <legend class="title-btn">Login</legend>
                 <div class="form-group mt-8">
@@ -219,12 +219,29 @@
         window.location.href = "./index.html";
     });
 
-    $('#loginBtn').click(function (event) {
-        event.preventDefault(); // Prevent the default form submission
+    // Register button click event
+    $("#loginBtn").click(function (e) {
+        e.preventDefault(); // Prevent form submission
 
-        // Perform any additional validation or processing here if needed
+        // Make AJAX request to register
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbx2Kc9m2a8sDENWWKdjsW_wZ5p0lingwW-PgVT8rh2FeCnNmxtZ7B1nG6OIDDZ4YoxS/exec",
+            method: "POST",
+            data: $("#loginForm").serialize(), // Assuming your form has id="registerForm"
+            success: function (response) {
+                if (response.startsWith("Invalid")) {
+                    alert("Invalid credentials!");
+                } else {
+                    sessionStorage.setItem('ApplicantName', response);
+                    window.location.href = "./LandingUI/SurveyGiver.html";
+                }                
 
-        window.location.href = "./LandingUI/SurveyGiver.html"; // Redirect to the new page
+            },
+            error: function (xhr, status, error) {
+                // Handle AJAX error
+                alert("AJAX error: " + status);
+            },
+        });
     });
 </script>
 

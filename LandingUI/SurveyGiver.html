@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="mx-auto w-2/5 flex-cols justify-center">
-        <h3 class="text-center">WELCOME (Applicant Name)</h3>
+        <h3 class="text-center">WELCOME <span id="appl-name" class=""></span></h3>
         <div class="flex justify-center">
             <button
                 class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 hover:bg-pink-900 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4">Start</button>
@@ -23,4 +23,13 @@
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var name = sessionStorage.getItem('ApplicantName'); // Retrieve sessionStorage item
+        console.log(name);
+        $('#appl-name').text(name); // Set text content of #appl-name element
+    });
+</script>
 </html>

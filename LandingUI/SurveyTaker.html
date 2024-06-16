@@ -92,23 +92,27 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-        $('#surveyForm').submit(function (e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "https://script.google.com/macros/s/AKfycbz6-WJaUsefDQmwPIwAW59oTCnATYHK5X4SsRgfPzCvln82UbvXUEB0wt9qV6HlUY0/exec",
-                    method: "POST",
-                    data: $("#surveyForm").serialize(),
-                    success: function (response) {
-                        console.log(response);
-                        alert("Form Submitted Successfully");
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("AJAX error: ", status, error);
-                        console.log("Response Text: ", xhr.responseText);
-                        alert("AJAX error: " + status + "\nError: " + error + "\nResponse: " + xhr.responseText);
-                    },
-                });
+        
+        // Register button click event
+        $("#registerBtn").click(function (e) {
+            e.preventDefault(); // Prevent form submission
+            var surveyID = $("#survey_id").val();
+            console.log(surveyID);
+            // Make AJAX request to register
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbyJgHF8NBpRIcCfO85KhVO6wiIt7MS4MV6fnqzIkEgfs41Jp92h1Qsn9roGnWsOA5tT/exec",
+                method: "POST",
+                data: $("#surveyForm").serialize(), // Assuming your form has id="registerForm"
+                success: function (response) {
+                    sessionStorage.setItem('surveyID',surveyID);
+                    window.location.href = "./SurveyForm.html";
+                },
+                error: function (xhr, status, error) {
+                    // Handle AJAX error
+                    alert("AJAX error: " + status);
+                },
             });
+        });
 
     </script>
 </body>
