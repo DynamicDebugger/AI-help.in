@@ -79,7 +79,7 @@
             <div class="form-group flex justify-center">
                 <button
                     class="text-white font-semibold border-2 border-pink-600 hover:border-pink-900 hover:bg-pink-900 transition ease-in-out delay-150 w-fit hover:text-white hover:translate-y-1 hover:scale-110 bg-pink-600 duration-300 text-white rounded-lg py-2 px-4"
-                    id="addQuestionBtn" onclick="display()">+Add Questions</button>
+                    id="addQuestionBtn" type="button" onclick="display()">+Add Questions</button>
             </div>
 
             <div class="form-group flex justify-center">
@@ -89,8 +89,9 @@
             </div>
         </div>
     </form>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         function display() {
             var fields = document.getElementById("fields");
@@ -99,7 +100,7 @@
 
             var questionGroup = document.createElement('div');
             questionGroup.setAttribute("class", 'form-group');
-            questionGroup.innerHTML = `<label for="question${newQuestionNumber}">Question-${newQuestionNumber}</label> <input type="text" id="question${ newQuestionNumber }" name="question ${ newQuestionNumber }" required />`;
+            questionGroup.innerHTML = `<label for="question${newQuestionNumber}">Question-${newQuestionNumber}</label> <input type="text" id="question${newQuestionNumber}" name="question${newQuestionNumber}" required />`;
 
             var answerGroup = document.createElement('div');
             answerGroup.setAttribute("class", 'form-group');
@@ -108,7 +109,6 @@
             fields.appendChild(questionGroup);
             fields.appendChild(answerGroup);
         }
-
 
         $(document).ready(function () {
             var id = sessionStorage.getItem('surveyID');
@@ -132,22 +132,20 @@
                     }
                 });
 
-                
                 $.ajax({
-                    url: "https://script.google.com/macros/s/AKfycbzAJ7LcsnGXXpi2ujxcVmGJfFcUXDj8r7juYxGjJq828_MQfxKbUqv7B4hibxnDK3o6/exec",
+                    url: "https://script.google.com/macros/s/AKfycbz6hvxykiV04oqm68q1Kkbv3OLEHwtcL19C_9csJvtUWN_RUlHfrt9xERh1FHsqqxRc/exec",
                     method: "POST",
                     data: formData,
                     success: function (response) {
                         window.location.href = "../SurveyLogin.html";
                     },
                     error: function (xhr, status, error) {
-                        console.error("AJAX error: " + status);
+                        console.error("AJAX error: " + JSON.stringify(formData));
                     },
                 });
+
             });
         });
-
-
     </script>
 
 </body>
